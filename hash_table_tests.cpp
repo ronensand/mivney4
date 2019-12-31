@@ -3,7 +3,6 @@
 #include <cstdlib>
 #include <iostream>
 #include <ctime>
-#include <experimental/random>
 
 int main() {
 	HashTable<int> table = HashTable<int>();
@@ -13,8 +12,8 @@ int main() {
 
 	try {
 		for (int i = 0; i < 10000; ++i) {
-			int r1 = std::experimental::randint(1, 100000);
-			int r2 = std::experimental::randint(1, 100000);
+			int r1 = rand() % 100000 + 1;
+			int r2 = rand() % 100000 + 1;
 			if (map.find(r1) == map.end()) {
 				map.insert(std::pair<int, int>(r1, r2));
 				table.insert(r1, r2);

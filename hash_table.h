@@ -74,9 +74,9 @@ class HashTable {
 		array = new HashTableItem<Value>*[capacity];
 		size = 0;
 		for (int i=0; i<capacity*2; ++i) {
-			if (nullptr == old_array[i] ||
-			DELETE_SIGN == old_array[i]->key) continue;
-			insert(old_array[i]->key, old_array[i]->value);
+			if (nullptr == old_array[i]) continue;
+			if (DELETE_SIGN != old_array[i]->key)
+				insert(old_array[i]->key, old_array[i]->value);
 			delete old_array[i];
 		}
 		delete [] old_array;

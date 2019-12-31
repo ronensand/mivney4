@@ -60,6 +60,7 @@ class HashTable {
 		auto* old_array = array;
 		capacity *= 2;
 		array = new HashTableItem<Value>*[capacity];
+		for (int i=0; i<capacity; ++i) array[i] = nullptr;
 		size = 0;
 		for (int i=0; i<capacity/2; ++i) {
 			insert(old_array[i]->key, old_array[i]->value);
@@ -72,6 +73,7 @@ class HashTable {
 		auto* old_array = array;
 		capacity /= 2;
 		array = new HashTableItem<Value>*[capacity];
+		for (int i=0; i<capacity; ++i) array[i] = nullptr;
 		size = 0;
 		for (int i=0; i<capacity*2; ++i) {
 			if (nullptr == old_array[i]) continue;
@@ -84,7 +86,9 @@ class HashTable {
 
 public:
 	HashTable() : size(0), capacity(START_SIZE),
-	array(new HashTableItem<Value>*[START_SIZE]) {}
+	array(new HashTableItem<Value>*[START_SIZE]) {
+		for (int i=0; i<capacity; ++i) array[i] = nullptr;
+	}
 
 	~HashTable(){
 		for (int i=0; i<capacity; ++i) {

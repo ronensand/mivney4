@@ -59,7 +59,7 @@ class HashTable {
 	void increase_capacity() {
 		auto* old_array = array;
 		capacity *= 2;
-		array = new HashTableItem<Value>*[capacity]{NULL};
+		array = new HashTableItem<Value>*[capacity];
 		size = 0;
 		for (int i=0; i<capacity/2; ++i) {
 			insert(old_array[i]->key, old_array[i]->value);
@@ -71,7 +71,7 @@ class HashTable {
 	void decrease_capacity() {
 		auto* old_array = array;
 		capacity /= 2;
-		array = new HashTableItem<Value>*[capacity]{NULL};
+		array = new HashTableItem<Value>*[capacity];
 		size = 0;
 		for (int i=0; i<capacity*2; ++i) {
 			if (nullptr == old_array[i] ||
@@ -84,9 +84,12 @@ class HashTable {
 
 public:
 	HashTable() : size(0), capacity(START_SIZE),
-	array(new HashTableItem<Value>*[START_SIZE]{NULL}) {}
+	array(new HashTableItem<Value>*[START_SIZE]) {}
 
-	virtual ~HashTable(){
+	~HashTable(){
+		for (int i=0; i<capacity; ++i) {
+			delete array[i];
+		}
 		delete [] array;
 	};
 

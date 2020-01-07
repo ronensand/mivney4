@@ -5,6 +5,8 @@
 #ifndef UNION_H
 #define UNION_H
 
+#include <exception>
+
 // T Must have default c'tor
 template <typename T>
 class Union {
@@ -37,8 +39,12 @@ private:
 
 template<typename T>
 Union<T>::Union(int n) :
-    _nodes(new Node[n]), _n(n) {}
-
+    _nodes(new Node[n]), _n(n)
+{
+    for (int i = 1; i <= n; ++i) {
+        _nodes[i].item.set_id(i);
+    }
+}
 
 template<typename T>
 Union<T>::~Union() {

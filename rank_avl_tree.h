@@ -165,15 +165,15 @@ class RankAVLTreeNode {
 
 public:
     T data;
+    int score;
+    int rank;
+    int score_rank;
     Pred pred;
     Less less;
     RankAVLTreeNode* parent;
     RankAVLTreeNode* left;
     RankAVLTreeNode* right;
     int height;
-    int rank;
-    int score;
-    int score_rank;
 
 	RankAVLTreeNode(const T& data, int score, Pred pred, Less less,
 		RankAVLTreeNode* parent = nullptr, RankAVLTreeNode* left = nullptr, RankAVLTreeNode* right = nullptr) :
@@ -262,6 +262,7 @@ template <class T, class Pred, class Less>
 class RankAVLTree {
 public:
     explicit RankAVLTree(Pred pred = Pred(), Less less = Less()) : _root(nullptr), _less(less), _pred(pred) {};
+    RankAVLTree(RankAVLTree& tree1, RankAVLTree& tree2, Pred pred = Pred(), Less less = Less());
     ~RankAVLTree() {
         if (_root) delete _root;
     }
@@ -310,9 +311,9 @@ public:
 		throw TreeNodeNotFoundException();
 	}
 
-	RankAVLTreeNode<T, Pred, Less> * _root;
 private:
-	Less _less;
+    RankAVLTreeNode<T, Pred, Less> * _root;
+    Less _less;
     Pred _pred;
 };
 

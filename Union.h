@@ -50,7 +50,7 @@ void Union<T>::merge(int id1, int id2) {
     validate_id(id1);
     validate_id(id2);
 
-    // Using get(without root fix) and not find, because we dont know the reel root
+    // Using get(without root fix) and not find, because we dont know the real root
     int root1 = get_root_id(id1);
     int root2 = get_root_id(id2);
 

@@ -1,11 +1,11 @@
-#ifndef AVL_TREE_H
-#define AVL_TREE_H
+#ifndef RANK_AVL_TREE_H
+#define RANK_AVL_TREE_H
 
 #include <functional>
 
 class ChildExistsException : public std::exception {
 	const char* what() const noexcept override {
-		return "AVLTreeNode already has a child there";
+		return "RankAVLTreeNode already has a child there";
 	}
 };
 
@@ -22,12 +22,7 @@ class AlreadyExistsException : public std::exception {
 };
 
 template <class T, class Pred, class Less>
-class AVLTreeNode {
-	int balance_factor() {
-		int leftHeight = left != nullptr ? left->height : -1;
-		int rightHeight = right != nullptr ? right->height : -1;
-		return leftHeight - rightHeight;
-	}
+class RankAVLTreeNode {
 
 	void update_height() {
 		int leftHeight = left != nullptr ? left->height : -1;
@@ -36,7 +31,17 @@ class AVLTreeNode {
 		height = max + 1;
 	}
 
-	void set_child(AVLTreeNode* tree) {
+	void update_ranks(){
+		int left_rank = this->left ? this->left->rank : 0;
+		int right_rank = this->right ? this->right->rank : 0;
+		rank = left_rank + right_rank + 1;
+
+		int left_score_rank = this->left ? this->left->score_rank : 0;
+		int right_score_rank = this->right ? this->right->score_rank : 0;
+		score_rank = left_score_rank + right_score_rank + score;
+	}
+
+	void set_child(RankAVLTreeNode* tree) {
 		if (less(tree->data, data) && left == nullptr) {
 			set_left(tree);
 		}
@@ -47,38 +52,41 @@ class AVLTreeNode {
 		}
 	}
 
-	void set_left(AVLTreeNode* tree) {
+	void virtual set_left(RankAVLTreeNode* tree) {
 		left = tree;
 		if (nullptr != tree) tree->parent = this;
 		update_height();
+		update_ranks();
 	}
 
-	void set_right(AVLTreeNode* tree) {
+	void virtual set_right(RankAVLTreeNode* tree) {
 		right = tree;
 		if (nullptr != tree) tree->parent = this;
 		update_height();
+		update_ranks();
 	}
 
-	AVLTreeNode* roll_right() {
-		AVLTreeNode* newRoot = left;
+	RankAVLTreeNode* roll_right() {
+		RankAVLTreeNode* newRoot = left;
 		set_left(newRoot->right);
 		newRoot->set_right(nullptr);
 		swap_with_child(newRoot);
 		return newRoot;
 	}
 
-	AVLTreeNode* roll_left() {
-		AVLTreeNode* newRoot = right;
+	RankAVLTreeNode* roll_left() {
+		RankAVLTreeNode* newRoot = right;
 		set_right(newRoot->left);
 		newRoot->set_left(nullptr);
 		swap_with_child(newRoot);
 		return newRoot;
 	}
 
-	AVLTreeNode* balance() {
+	RankAVLTreeNode* balance() {
 		int balanceFactor = balance_factor();
 		if (balanceFactor * balanceFactor < 4) {
 			update_height();
+			update_ranks();
 			return this;
 		}
 
@@ -95,10 +103,10 @@ class AVLTreeNode {
 		}
 	}
 
-	AVLTreeNode* remove_node() {
-		AVLTreeNode<T, Pred, Less>* toRemove = this;
+	RankAVLTreeNode* remove_node() {
+		RankAVLTreeNode<T, Pred, Less>* toRemove = this;
 		if (left != nullptr && right != nullptr) {
-			AVLTreeNode* next = right;
+			RankAVLTreeNode* next = right;
 			while (next->left != nullptr) {
 				next = next->left;
 			}
@@ -109,9 +117,9 @@ class AVLTreeNode {
 			toRemove = next;
 		}
 
-		AVLTreeNode* newChild = toRemove->left == nullptr ?
+		RankAVLTreeNode* newChild = toRemove->left == nullptr ?
 		                    toRemove->right : toRemove->left;
-		AVLTreeNode* oldParent = toRemove->parent;
+		RankAVLTreeNode* oldParent = toRemove->parent;
 		if (oldParent != nullptr) oldParent->change_child(toRemove, newChild);
 		else if(nullptr != newChild) newChild->parent = nullptr;
 		toRemove->right = nullptr;
@@ -120,7 +128,7 @@ class AVLTreeNode {
 		return oldParent == nullptr ? newChild : oldParent;
 	}
 
-	void change_child(AVLTreeNode *currentChild, AVLTreeNode *newChild) {
+	void change_child(RankAVLTreeNode *currentChild, RankAVLTreeNode *newChild) {
 		if (left == currentChild) {
 			set_left(newChild);
 		}
@@ -130,7 +138,7 @@ class AVLTreeNode {
 		}
 	}
 
-	void swap_with_child(AVLTreeNode* child) {
+	void swap_with_child(RankAVLTreeNode* child) {
 		if (parent != nullptr) {
 			parent->change_child(this, child);
 		} else {
@@ -141,12 +149,12 @@ class AVLTreeNode {
 	}
 
     template <typename S>
-	AVLTreeNode* search(const S& value) {
+	RankAVLTreeNode* search(const S& value) {
 		if (pred(data, value)) {
 			return this;
 		}
 
-		AVLTreeNode* next = nullptr;
+		RankAVLTreeNode* next = nullptr;
 		next = less(data, value) ? right : left;
 
 		if (nullptr == next) {
@@ -159,40 +167,47 @@ public:
     T data;
     Pred pred;
     Less less;
-    AVLTreeNode* parent;
-    AVLTreeNode* left;
-    AVLTreeNode* right;
+    RankAVLTreeNode* parent;
+    RankAVLTreeNode* left;
+    RankAVLTreeNode* right;
     int height;
+    int rank;
+    int score;
+    int score_rank;
 
-	AVLTreeNode(const T& data, Pred pred, Less less, AVLTreeNode* parent = nullptr, AVLTreeNode* left = nullptr, AVLTreeNode* right = nullptr) :
-		data(data), pred(pred), less(less), parent(parent), left(left), right(right), height(0) {}
+	RankAVLTreeNode(const T& data, int score, Pred pred, Less less,
+		RankAVLTreeNode* parent = nullptr, RankAVLTreeNode* left = nullptr, RankAVLTreeNode* right = nullptr) :
+		data(data), score(score), rank(1), score_rank(score), pred(pred),
+		less(less), parent(parent), left(left), right(right), height(0) {}
 
-	virtual ~AVLTreeNode(){
+	virtual ~RankAVLTreeNode(){
 	    if (right) delete right;
 	    if (left) delete left;
 	};
 
     template <typename S>
-	AVLTreeNode* find(const S& value) {
-		AVLTreeNode* tree = search(value);
+	RankAVLTreeNode* find(const S& value) {
+		RankAVLTreeNode* tree = search(value);
 		if (!pred(tree->data, value)){
 			throw TreeNodeNotFoundException();
 		}
 		return tree;
 	}
 
-	AVLTreeNode* insert(const T& value) {
-		AVLTreeNode *position = search(value);
+	RankAVLTreeNode* insert(const T& value, int score) {
+		RankAVLTreeNode *position = search(value);
 		if (pred(position->data, value)) {
 			throw AlreadyExistsException();
 		}
 
-		auto newTree = new AVLTreeNode(value, pred, less, position, nullptr, nullptr);
+		auto newTree = new RankAVLTreeNode(value, score, pred, less,
+			position, nullptr, nullptr);
 		position->set_child(newTree);
 
 		while(nullptr != position->parent) {
 			position = position->parent;
-			// This only runs update_height() to every tree except the first
+			// This only runs update_height() and updateRanks() to every
+			// tree except the first
 			position->balance();
 		}
 
@@ -200,14 +215,14 @@ public:
 	}
 
     template <typename S>
-	AVLTreeNode* remove(const S& value) {
-		AVLTreeNode* position = search(value);
+	RankAVLTreeNode* remove(const S& value) {
+		RankAVLTreeNode* position = search(value);
 		if (!pred(position->data,value)) {
 			throw TreeNodeNotFoundException();
 		}
 
-		AVLTreeNode* tree = position->remove_node();
-		AVLTreeNode* root = tree;
+		RankAVLTreeNode* tree = position->remove_node();
+		RankAVLTreeNode* root = tree;
 
 		while(nullptr != tree) {
 			root = tree->balance();
@@ -223,22 +238,41 @@ public:
         func(data);
         if (right) right->inorder(func);
     }
+
+
+	int get_score_by_rank(int index) {
+		int i = left ? left->rank + 1 : 1;
+		int left_score_rank = this->left ? this->left->score_rank : 0;
+		if (i > index) return left->get_score_by_rank(index);
+		if (i < index)
+			return right ? left_score_rank + score +
+			right->get_score_by_rank(index - i) : left_score_rank + score;
+		return left_score_rank + score; // i == index
+	}
+
+
+	int balance_factor() {
+		int leftHeight = left != nullptr ? left->height : -1;
+		int rightHeight = right != nullptr ? right->height : -1;
+		return leftHeight - rightHeight;
+	}
 };
 
 template <class T, class Pred, class Less>
-class AVLTree {
+class RankAVLTree {
 public:
-    explicit AVLTree(Pred pred = Pred(), Less less = Less()) : _root(nullptr), _less(less), _pred(pred) {};
-    ~AVLTree() {
+    explicit RankAVLTree(Pred pred = Pred(), Less less = Less()) : _root(nullptr), _less(less), _pred(pred) {};
+    ~RankAVLTree() {
         if (_root) delete _root;
     }
 
-    void insert(const T& data) {
+    void insert(const T& data, int score) {
         if (nullptr == _root){
-            _root = new AVLTreeNode<T, Pred, Less>(data, _pred, _less, nullptr, nullptr, nullptr);
+            _root = new RankAVLTreeNode<T, Pred, Less>(data, score, _pred,
+            	_less, nullptr, nullptr, nullptr);
         }
         else{
-            _root = _root->insert(data);
+            _root = _root->insert(data, score);
         }
     }
 
@@ -268,12 +302,19 @@ public:
         }
     }
 
+	int get_score_by_rank(int rank){
+    	if (_root) {
+			return _root->get_score_by_rank(rank);
+		}
 
+		throw TreeNodeNotFoundException();
+	}
+
+	RankAVLTreeNode<T, Pred, Less> * _root;
 private:
-    AVLTreeNode<T, Pred, Less> * _root;
-    Less _less;
+	Less _less;
     Pred _pred;
 };
 
-#endif //AVL_TREE_H
+#endif //RANK_AVL_TREE_H
 

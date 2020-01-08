@@ -9,11 +9,11 @@ Manager::Manager(int n) : _size(n), _union(n), _tree(), _hash_table() {}
 void Manager::merge(int id1, int id2) {
     if (0 >= id1 || _size < id1 || 0 >= id2 || _size < id2 ) throw InvalidArgumentException();
 
-    auto center1 = _union.find(id1);
-    auto center2 = _union.find(id1);
+    DataCenter& center1 = _union.find(id1);
+    DataCenter& center2 = _union.find(id1);
 
     _union.merge(id1, id2);
-    auto merged_center = _union.find(id1);
+    DataCenter& merged_center = _union.find(id1);
     (merged_center == center1) ? (merged_center.merge(center2)) : (merged_center.merge(center1));
 }
 
@@ -41,7 +41,7 @@ void Manager::addServer(int dataCenterId, int serverID, int traffic) {
 void Manager::removeServer(int serverID) {
     if (0 >= serverID) return throw InvalidArgumentException();
 
-    auto server = _hash_table.find(serverID);
+    Server * server = _hash_table.find(serverID);
     _hash_table.remove(serverID);
 
     // If the server has score the he is inside score trees.
@@ -76,7 +76,7 @@ int Manager::SumHighestTrafficServers(int dataCenterId, int k) {
 }
 
 Manager::~Manager() {
-    _tree.inorder([](Server * server){
-        delete server;
+    _tree.inorder([](ServerNode * server){
+        delete server->data;
     });
 }

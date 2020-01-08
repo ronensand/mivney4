@@ -381,8 +381,18 @@ RankAVLTreeNode<T, Pred, Less>* merge(RankAVLTreeNode<T, Pred, Less>* t1,
 	RankAVLTreeNode<T, Pred, Less>* result = array_to_tree<T, Pred, Less>
 	(merged, 0,	t1arr.length + t2arr.length - 1);
 	delete [] merged;
+
 	return result;
 }
+
+template<class T, class Pred, class Less>
+RankAVLTree<T, Pred, Less>::RankAVLTree(RankAVLTree &tree1, RankAVLTree &tree2, Pred pred, Less less) :
+    _root(merge(tree1._root, tree2._root)), _less(less), _pred(pred) {
+        // We using the nodes in the merged tree, we want to avoid deleting them
+        tree1._root = nullptr;
+        tree2._root = nullptr;
+}
+
 
 #endif //RANK_AVL_TREE_H
 

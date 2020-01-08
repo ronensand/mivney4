@@ -21,8 +21,7 @@ public:
     void set_id(int id) { _id = id; }
 private:
     int _id;
-    RankAVLTree<Server *, Server::GreaterScore, Server::Compare> _tree;
-
+    ServerTree _tree;
 };
 
 

@@ -1,11 +1,11 @@
 #include "library2.h"
-#include <assert.h>
+#include <cassert>
 #include <iostream>
 using std::cout;
 int main() {
     void** DS=new (void*);
     *DS=Init(10);
-    assert(*DS!=NULL);
+    assert(*DS!=nullptr);
     StatusType s=AddServer(*DS,11,10);
     assert(s==INVALID_INPUT);
      s=AddServer(*DS,0,10);
@@ -256,4 +256,6 @@ int main() {
     cout<<"YOU HAVE PASSED THE TEST ^___^"<<"\n"<<"GOOD LUCK IN THE FINAL EXAM";
     cout<<"\n"<<"*******************************************************"<<"\n";
     cout<<"*******************************************************"<<"\n";
+
+    return 0;
 }

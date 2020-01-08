@@ -5,6 +5,7 @@
 #ifndef MIVNEY4_SERVER_H
 #define MIVNEY4_SERVER_H
 
+#include "rank_avl_tree.h"
 
 class Server {
 public:
@@ -35,6 +36,9 @@ private:
     int _dataCenterID;
     int _score;
 };
+
+using ServerNode = RankAVLTreeNode<Server *, Server::Compare, Server::GreaterScore>;
+using ServerTree = RankAVLTree<Server *, Server::Compare, Server::GreaterScore>;
 
 
 #endif //MIVNEY4_SERVER_H

@@ -30,7 +30,7 @@ public:
 private:
     const int _size;
     Union<DataCenter> _union;
-    RankAVLTree<Server *, Server::GreaterScore, Server::Compare> _tree;
+    ServerTree _tree;
     HashTable<Server *> _hash_table;
 };
 

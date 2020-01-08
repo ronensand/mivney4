@@ -130,6 +130,21 @@ void test_left_right_rotation()
 	cout << tree.get_score_by_rank(1) << "\n";
 }
 
+void test_merge() {
+	RankAVLTree<int, CompareInt, LessInt> tree1 = RankAVLTree<int, CompareInt, LessInt>();
+	tree1.insert(1,1);
+	tree1.insert(3,3);
+	tree1.insert(5,5);
+
+	RankAVLTree<int, CompareInt, LessInt> tree2 = RankAVLTree<int, CompareInt, LessInt>();
+	tree2.insert(2,2);
+	tree2.insert(4,4);
+	tree2.insert(6,6);
+
+	tree1._root = merge(tree1._root, tree2._root);
+	assert(tests::is_avl(&tree1));
+}
+
 // Call all the above cases
 int main()
 {
@@ -140,5 +155,6 @@ int main()
 	TEST_CASE(test_multiple_left_insertions);
 	TEST_CASE(test_right_left_rotation);
 	TEST_CASE(test_left_right_rotation);
+	TEST_CASE(test_merge);
 	return 0;
 }

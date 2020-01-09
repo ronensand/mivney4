@@ -342,7 +342,7 @@ RankAVLTreeNode<T, Pred, Less>** merge(TreeNodeArray<T, Pred, Less>* t1,
 	auto* result =
 		new RankAVLTreeNode<T, Pred, Less>*[t1->length + t2->length];
 	int i1 = 0, i2 = 0, ir = 0;
-	while(i1<t2->length && i2<t2->length) {
+	while(i1<t1->length && i2<t2->length) {
 		if(Less()(t1->arr[i1]->data, t2->arr[i2]->data))
 			result[ir++] = t1->arr[i1++];
 		else result[ir++] = t2->arr[i2++];
@@ -367,7 +367,7 @@ template <class T, class Pred, class Less>
 RankAVLTreeNode<T, Pred, Less>* merge(RankAVLTreeNode<T, Pred, Less>* t1,
 		RankAVLTreeNode<T, Pred, Less>* t2){
 	TreeNodeArray<T,Pred,Less> t1arr = TreeNodeArray<T,Pred,Less>(t1->rank);
-	TreeNodeArray<T,Pred,Less> t2arr = TreeNodeArray<T,Pred,Less>(t1->rank);
+	TreeNodeArray<T,Pred,Less> t2arr = TreeNodeArray<T,Pred,Less>(t2->rank);
 
 	t1->inorder([&](RankAVLTreeNode<T, Pred, Less>* t) {
 		t1arr.insert(t);

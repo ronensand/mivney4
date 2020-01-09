@@ -15,9 +15,7 @@ void DataCenter::remove(Server *server) {
 void DataCenter::merge(DataCenter &center) {
     // We need to create new merged tree.
     // TODO:
-    //_tree = RankAVLTree<Server *, Server::GreaterScore, Server::Compare>(_tree, center._tree);
-    // Destroy the unused DataCenter and his tree (We dont need to detroy this instance tree, we replaced it so it has been destroyed)
-    center.~DataCenter();
+    _tree = ServerTree (_tree, center._tree);
 }
 
 int DataCenter::get_score_by_rank(int k) {

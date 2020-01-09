@@ -116,6 +116,7 @@ private:
 			T temp = data;
 			data = next->data;
 			next->data = temp;
+			score = next->score;
 			toRemove = next;
 		}
 
@@ -337,6 +338,9 @@ public:
 
 	void insert(RankAVLTreeNode<T, Pred, Less>* t) {
 		arr[length++] = t;
+		t->left = nullptr;
+		t->right = nullptr;
+		t->parent = nullptr;
 	}
 };
 
@@ -362,8 +366,11 @@ RankAVLTreeNode<T, Pred, Less>* array_to_tree(RankAVLTreeNode<T, Pred, Less>** a
 	if (start > end) return nullptr;
 	auto* root = arr[(start+end)/2];
 	root->left = array_to_tree(arr, start, ((start+end)/2)-1);
+	if (root->left) root->left->parent = root;
 	root->right = array_to_tree(arr, ((start+end)/2)+1, end);
-	root->update();
+    if (root->right) root->right->parent = root;
+    root->update();
+
 	return root;
 }
 

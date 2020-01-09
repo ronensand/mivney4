@@ -142,6 +142,7 @@ void test_merge() {
 	tree2.insert(6,6);
 
 	tree1._root = merge(tree1._root, tree2._root);
+	tree2._root = nullptr; // to avoid deleting the nodes we merged
 	assert(tests::is_avl(&tree1));
 }
 

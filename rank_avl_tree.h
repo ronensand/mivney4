@@ -315,7 +315,7 @@ public:
 
 private:
 	RankAVLTreeNode<T, Pred, Less> * _root;
-    Less _less;
+	Less _less;
     Pred _pred;
 };
 
@@ -360,6 +360,7 @@ RankAVLTreeNode<T, Pred, Less>* array_to_tree(RankAVLTreeNode<T, Pred, Less>** a
 	root->left = array_to_tree(arr, start, ((start+end)/2)-1);
 	root->right = array_to_tree(arr, ((start+end)/2)+1, end);
 	root->update();
+	return root;
 }
 
 template <class T, class Pred, class Less>

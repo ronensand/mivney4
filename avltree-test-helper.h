@@ -10,10 +10,9 @@ Friend of avltree class which contains functions only used in testing.
 #include <algorithm>
 #include <cmath>
 #include <assert.h>
-
-using std::max;
-
 #include <iostream>
+#include "rank_avl_tree.h"
+using std::max;
 using std::cout;
 using std::endl;
 

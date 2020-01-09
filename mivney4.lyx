@@ -1,0 +1,2355 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{culmus}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language hebrew
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{titlepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+מבני נתונים 
+\numeric on
+234218
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+- תרגיל בית
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\numeric off
+, חלק יבש
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size larger
+אמתי פריי
+\family roman
+\series medium
+\shape up
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+205588726
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size larger
+רונן סנדלר
+\family roman
+\series medium
+\shape up
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+313605321
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{titlepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+תיאור מבני הנתונים
+\end_layout
+
+\begin_layout Subsection*
+עץ דרגות
+\family roman
+\series bold
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+AVL
+\end_layout
+
+\begin_layout Standard
+השתמשנו בעצי
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+AVL
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+עם דרגות, כפי שנלמד בהרצאה ובתרגול.
+ שמרנו שתי דרגות לכל צומת:
+\end_layout
+
+\begin_layout Enumerate
+דרגה לטובת אינדקס - כלומר מספר הצמתים שבתת העץ שהשורש שלו הוא הצומת הזה.
+\end_layout
+
+\begin_layout Enumerate
+דרגה לטובת סכום - סכום כל המפתחות בצמתים שבתת העץ שהשורש שלו הוא הצומת הזה.
+\end_layout
+
+\begin_layout Standard
+סיבוכיות הפעולות של עצים אלו הן כפי שנלמד:
+\end_layout
+
+\begin_layout Standard
+יצירת העץ - 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הכנסה ועדכון - 
+\begin_inset Formula $O\left(log\left(n\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הוצאה ועדכון
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ -
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $O\left(log\left(n\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+חיפוש )גם לפי אינדקס וגם לפי מפתח( - 
+\begin_inset Formula $O\left(log\left(n\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+טבלת ערבול דינאמית
+\end_layout
+
+\begin_layout Standard
+בנוסף, השתמשנו במטבלת ערבול עם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Double Hashing
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+וגודל דינאמי כפי שנלמד בתרגול.
+ כלומר, כאשר הטבלה מתמלאת, אנו מקצים מערך חדש בגודל פי
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ומכניסים אליו את הערכים הקיימים.
+ כאשר הטבלה מכילה מספר ערכים ששוה לפחות מרבע מגודלה, נקצה מערך חדש בגודל
+ חצי מהמערך הקיים ונכניס אליו את כל הערכים הקיימים.
+\begin_inset Newline newline
+\end_inset
+
+פונקציית הערבול שלנו היא 
+\begin_inset Formula $f_{n}(x)=(x+n)\%sizeof(table)$
+\end_inset
+
+ כאשר
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+n
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+הוא כמה פעמים כבר ביצענו
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+hash
+\lang hebrew
+.
+ כלומר, בכל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Rehash
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+המפתח בטבלה מתקדם ב-
+\numeric on
+1
+\numeric off
+.
+ הטבלה לעולם לא מלאה לגמרי )כי אם היא מלאה אנו מגדילים אותה(, ולכן תמיד
+ נמצא מקום לאיבר חדש.
+ בנוסף, כאשר מוציאים איבר מסמנים במיקום שלו
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Delete
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+כדי שנוכל למצוא את האיברים שאולי הוזחו בגללו.
+ 
+\begin_inset Newline newline
+\end_inset
+
+בממוצע על הקלט, פונקציות אלו גורמות לפיזור אחיד כי מקדם העומס תמיד קטן מ-
+\numeric on
+1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+)כי הטבלה גדלה דינאמית(.
+ לכן סיבוכיות הפונקציות בטבלת הערבול היא:
+\end_layout
+
+\begin_layout Standard
+יצירת הטבלה - 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ כי הגודל ההתחלתי קבוע )אצלנו הוא
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+16
+\numeric off
+(
+\end_layout
+
+\begin_layout Standard
+הכנסה - 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ משוערך, בממוצע על הקלט
+\end_layout
+
+\begin_layout Standard
+הוצאה - 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ משוערך, בממוצע על הקלט
+\end_layout
+
+\begin_layout Subsection*
+מבנה
+\family roman
+\series bold
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Union Find
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+TODO
+\end_layout
+
+\begin_layout Subsection*
+סיבוכיות מקום
+\end_layout
+
+\begin_layout Standard
+סיבוכיות המקום של כל אחד ממבני הנתונים לעיל היא 
+\begin_inset Formula $O\left(n\right)$
+\end_inset
+
+ כפי שנלמד, כאשר
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+n
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+הוא מספר האיברים שמבנה הנתונים מכיל.
+\end_layout
+
+\begin_layout Section*
+הסבר מימוש הפעולות
+\end_layout
+
+\begin_layout Subsection*
+הסבר המימוש - כללי
+\end_layout
+
+\begin_layout Subsubsection*
+שמירת חוות השרתים
+\end_layout
+
+\begin_layout Standard
+חוות השרתים יישמרו ב-
+\lang english
+Union Find
+\lang hebrew
+, לפי האינקדס שלהם.
+ בכל חוות שרתים נשמור עץ דרגות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מאוזן, שמחזיק מצביעים לשרתים של החווה הזאת לפי כמות התעבורה שלהם )בסדר יורד(
+ ובעדיפות שנייה לפי מזהה השרת )בסדר עולה(.
+ לא נשמור בהכרח את השרתים שכמות התעבורה שלהם היא
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+ )כי אין לנו צורך בכך - נסביר זאת בפירוט הפעולות(.
+ כאשר נאחד בין חוות שרתים ואח
+\begin_inset Quotes erd
+\end_inset
+
+כ נרצה להשתמש באחת מהן, מבנה ה-
+\lang english
+Union Find
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+יחזיר לנו את החווה המאחודת.
+ לכן, כאשר נרצה לבצע פעולה הכוללת שימוש בחוות שרתים מסוימת נוכל להגיע אליה
+ ב 
+\begin_inset Formula $log^{*}(n)$
+\end_inset
+
+ כפי שנלמד.
+\end_layout
+
+\begin_layout Subsubsection*
+שמירת שרתים
+\end_layout
+
+\begin_layout Standard
+נשמור טבלת ערבול דינאמית של מצביעים לשרתים, שהמפתח הוא מזהה השרת )
+\lang english
+int
+\lang hebrew
+(.
+ טבלה זו תגדל ותקטן לפי הלוגיקה המפורטת לעיל, ע
+\begin_inset Quotes erd
+\end_inset
+
+פ הוספות והסרות של שרתים מהמבנה הכללי שלנו.
+\begin_inset Newline newline
+\end_inset
+
+בנוסף, נשמור עץ דרגות מאוזן שמחזיק מצביעים לכל השרתים במבנה הכללי, שמסודר
+ לפי כמות התעבורה שלהם )בסדר יורד( ובעדיפות שנייה לפי מזהה השרת )בסדר עולה(.
+ גם בעץ זה לא נשמור בהכרח את כל השרתים עם תעבורה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+, כי אנו לא זקוקים לכך.
+\begin_inset Newline newline
+\end_inset
+
+בכל שרת נשמור את המזהה שלו, כמות התעבורה שלו, ואת אינקדס חוות השרתים אליה
+ הוא שייך.
+\end_layout
+
+\begin_layout Subsection*
+הסבר המימוש - פעולות
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula $Init$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+ניצור
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Union Find
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בגודל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+n
+\lang hebrew
+, טבלת ערבול ריקה ועץ דרגות מאוזן ריק.
+\end_layout
+
+\begin_layout Standard
+סה
+\begin_inset Quotes erd
+\end_inset
+
+כ יש לנו 
+\begin_inset Formula $O(n)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula $MergeDataCenters$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+נמצא את שתי החוות ב-
+\lang english
+Union Find
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+של החוות - 
+\begin_inset Formula $O(log^{*}(n))$
+\end_inset
+
+ משוערך
+\end_layout
+
+\begin_layout Itemize
+נאחד את העצים המאוזנים של החוות הללו, נסביר כיצד נעשה זאת ב- 
+\begin_inset Formula $O\left(m\right)$
+\end_inset
+
+ כאשר
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+m
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+הוא סכום מספר השרתים בשתי החוות
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+ניצור מערך לכל עץ כגודלו, ונכניס אליו בסדר
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+InOrder
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ע
+\begin_inset Quotes erd
+\end_inset
+
+מ שיהיה ממוין - 
+\begin_inset Formula $O\left(m_{1}+m_{2}\right)=O\left(m\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+נאחד בין שני המערכים הללו למערך אחד, ע
+\begin_inset Quotes erd
+\end_inset
+
+י
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+MergeSort
+\lang hebrew
+.
+ נעבור על כל איבר פעם אחת כפי שנלמד ולכן - 
+\begin_inset Formula $O\left(m\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+נבנה עץ דרגות מאוזן בעזרת המערך המאוחד הממוין - 
+\begin_inset Formula $O\left(m\right)$
+\end_inset
+
+ :
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+אם גודל המערך הוא
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+, נחזיר
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+NULL
+\end_layout
+
+\begin_layout Itemize
+ניקח את האיבר במיקום 
+\begin_inset Formula $\lfloor\frac{m}{2}\rfloor$
+\end_inset
+
+, ונעשה שיהיה השורש
+\end_layout
+
+\begin_layout Itemize
+נקרא לפונקצייה הזאת על החלק השמאלי של המערך, כלומר על האינדקסים 
+\begin_inset Formula $(0,\lfloor\frac{m}{2}\rfloor-1)$
+\end_inset
+
+, ונשים את העץ שחוזר ממנו להיות הבן השמאלי של השורש
+\end_layout
+
+\begin_layout Itemize
+נקרא לפונקצייה הזאת על החלק הימני של המערך, כלומר על האינדקסים 
+\begin_inset Formula $(\lfloor\frac{m}{2}\rfloor+1,m)$
+\end_inset
+
+, ונשים את העץ שחוזר ממנו להיות הבן הימני של השורש
+\end_layout
+
+\begin_layout Itemize
+נעדכן את הדרגות של השורש
+\end_layout
+
+\begin_layout Itemize
+מכיוון שעברנו על כל איבר במערך פעם אחת בלבד, הסיבוכיות היא 
+\begin_inset Formula $O\left(m\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+נבצע
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Union
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+על שתי החוות הללו - 
+\begin_inset Formula $O(log^{*}(n))$
+\end_inset
+
+ משוערך 
+\end_layout
+
+\begin_layout Standard
+סה
+\begin_inset Quotes erd
+\end_inset
+
+כ 
+\begin_inset Formula $O\left(log^{*}\left(n\right)+m\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula $AddServer$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+ניצור שרת חדש עם הנתונים שלו )מזהה, חווה שהוא שייך אליה, תעבורה=
+\numeric on
+0
+\numeric off
+( - 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+נכניס אותו לטבלת הערבול של השרתים - 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ משוערך, בממוצע על הקלט
+\end_layout
+
+\begin_layout Standard
+סה
+\begin_inset Quotes erd
+\end_inset
+
+כ 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ משוערך, בממוצע על הקלט )יותר טוב מהדרישה בתרגיל - 
+\begin_inset Formula $O\left(log^{*}\left(n\right)\right)$
+\end_inset
+
+(
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula $RemoveServer$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+נמצא את השרת בטבלת הערבול, ונוציא אותו ממנה - 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ משוערך, בממוצע על הקלט
+\end_layout
+
+\begin_layout Itemize
+בנתוני השרת שמור לנו מזהה החווה אליה הוא שייך, נשתמש בנתון זה כדי למצוא
+ את החווה - 
+\begin_inset Formula $O\left(log^{*}\left(n\right)\right)$
+\end_inset
+
+ משוערך, כי ייתכן שהחווה אוחדה עם חווה אחרת ולכן נצטרך למצוא את השורש בעץ
+ ההפוך ב-
+\lang english
+Union Find
+\end_layout
+
+\begin_layout Itemize
+נוציא את השרת מהעץ של חוות השרתים שלו, ומהעץ הכללי של כל החוות - 
+\begin_inset Formula $O\left(log(m)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+סה
+\begin_inset Quotes erd
+\end_inset
+
+כ 
+\begin_inset Formula $O\left(log^{*}\left(n\right)+log(m)\right)$
+\end_inset
+
+ משוערך, בממוצע על הקלט )יותר טוב מהדרישה בתרגיל - 
+\begin_inset Formula $O\left(log^{*}\left(n\right)+m\right)$
+\end_inset
+
+(
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula $SetTraffic$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+נמצא את השרת בטבלת הערבול - 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ משוערך, בממוצע על הקלט
+\end_layout
+
+\begin_layout Itemize
+בנתוני השרת שמור לנו מזהה החווה אליה הוא שייך, נשתמש בנתון זה כדי למצוא
+ את החווה - 
+\begin_inset Formula $O\left(log^{*}\left(n\right)\right)$
+\end_inset
+
+ משוערך, כי ייתכן שהחווה אוחדה עם חווה אחרת ולכן נצטרך למצוא את השורש בעץ
+ ההפוך ב-
+\lang english
+Union Find
+\end_layout
+
+\begin_layout Itemize
+נוציא את השרת מהעץ של חוות השרתים, ומהעץ הכללי של המערכת - 
+\begin_inset Formula $O\left(log(m)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+נעדכן את כמות התעבורה בשרת - 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+נכניס את השרת )המעודכן( חזרה לעץ של חוות השרתים, ולעץ הכללי של המערכת -
+ 
+\begin_inset Formula $O\left(log(m)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+סה
+\begin_inset Quotes erd
+\end_inset
+
+כ 
+\begin_inset Formula $O\left(log^{*}\left(n\right)+log(m)\right)$
+\end_inset
+
+ משוערך, בממוצע על הקלט )יותר טוב מהדרישה בתרגיל - 
+\begin_inset Formula $O\left(log^{*}\left(n\right)+m\right)$
+\end_inset
+
+(
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula $SumHighestTrafficServers$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נבחר עץ לחישוב הסכום:
+\end_layout
+
+\begin_layout Itemize
+אם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+dataCenterId=0
+\lang hebrew
+, נבחר את העץ הכללי של המערכת - 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+אחרת, נבחר את העץ של החווה בעלת המזהה שקיבלנו - 
+\begin_inset Formula $O\left(log^{*}\left(n\right)\right)$
+\end_inset
+
+ משוערך
+\end_layout
+
+\begin_layout Standard
+כעת, נבצע את חישוב הסכום על העץ שבחרנו:
+\end_layout
+
+\begin_layout Itemize
+נמצא את האיבר בעל האינדקס ה-
+\lang english
+k
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+לפי הדרגות של האינדקסים - 
+\begin_inset Formula $O\left(log(m)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+נחשב את סכום האיברים שגדולים ממנו, לפי דרגות הסכומים כפי שנלמד בתרגול -
+ 
+\begin_inset Formula $O\left(log(m)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+אם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+k
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+גדול מגודל העץ שלנו, אז נחזיר את סכום על השרתים בעץ.
+ במימוש שלנו ייתכן שישנם שרתים נוספים בחווה
+\backslash
+במערכת שלא מופיעים בעץ, אך מובטח לנו שכמות התעבורה בהן היא
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ולכן הם לא משפיעים על הסכום.
+\begin_inset Newline newline
+\end_inset
+
+סה
+\begin_inset Quotes erd
+\end_inset
+
+כ 
+\begin_inset Formula $O\left(log^{*}\left(n\right)+log(m)\right)$
+\end_inset
+
+ משוערך.
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula $Quit$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+נעבור טבלת הערבול ונמחק את כל השרתים, ולאחר מכן נמחק את הטבלה - 
+\begin_inset Formula $O\left(m\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+נעבור על ה-
+\lang english
+Union Find
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ונמחק כל חוות שרתים, ואז נמחק את המבנה עצמו - 
+\begin_inset Formula $O\left(n\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+במחיקת כל חווה נמחק את העץ שלה - 
+\begin_inset Formula $O\left(m_{i}\right)$
+\end_inset
+
+ כאשר 
+\begin_inset Formula $m_{i}$
+\end_inset
+
+ הוא מספר השרתים שהיה בחווה הזאת
+\end_layout
+
+\begin_layout Itemize
+סה
+\begin_inset Quotes erd
+\end_inset
+
+כ מחיקת כלל העצים - 
+\begin_inset Formula $O\left(m\right)$
+\end_inset
+
+ כי 
+\begin_inset Formula $\sum_{i=1}^{n}m_{i}=m$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+נמחק את העץ הכללי של המערכת - 
+\begin_inset Formula $O\left(m\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+סה
+\begin_inset Quotes erd
+\end_inset
+
+כ 
+\begin_inset Formula $O\left(n+m\right)$
+\end_inset
+
+ כאשר 
+\begin_inset Formula $m$
+\end_inset
+
+ הוא מספר השרתים סה
+\begin_inset Quotes erd
+\end_inset
+
+כ בכל החוות )כלומר 
+\begin_inset Formula $m=\sum_{i=1}^{n}m_{i}$
+\end_inset
+
+(.
+\end_layout
+
+\begin_layout Subsection*
+הסבר מימוש - סיבוכיות המקום
+\end_layout
+
+\begin_layout Standard
+בכל רגע נתון, אנו שומרים את המידע הבא:
+\end_layout
+
+\begin_layout Enumerate
+את כל השרתים שיש כרגע במערכת - 
+\begin_inset Formula $O\left(m\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+מבנה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Union Find
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+של חוות השרתים בגודל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+n
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+- 
+\begin_inset Formula $O\left(n\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+טבלת ערבול בגודל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+4m
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+לכל היותר )אם היא ממש לפני צמצום( - 
+\begin_inset Formula $O\left(m\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+עץ כללי של המערכת, שמכיל מצביעים לכל השרתים - 
+\begin_inset Formula $O\left(m\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+לכל חוות שרתים, עץ של השרתים שנמצאים בו - 
+\begin_inset Formula $O\left(m_{i}\right)$
+\end_inset
+
+ כאשר 
+\begin_inset Formula $m_{i}$
+\end_inset
+
+ הוא מספר השרתים שהיה בחווה הזאת
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+סכום גודל כל העצים - 
+\begin_inset Formula $O\left(m\right)$
+\end_inset
+
+ כי 
+\begin_inset Formula $\sum_{i=1}^{n}m_{i}=m$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+זהו סה
+\begin_inset Quotes erd
+\end_inset
+
+כ: 
+\begin_inset Formula $O\left(n+m\right)$
+\end_inset
+
+ כפי הנדרש.
+\end_layout
+
+\end_body
+\end_document

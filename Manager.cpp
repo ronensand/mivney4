@@ -71,10 +71,3 @@ int Manager::SumHighestTrafficServers(int dataCenterId, int k) {
 
     return _union.find(dataCenterId).get_score_by_rank(k);
 }
-
-Manager::~Manager() {
-    // TODO: The tree dont have all the servers, we need to delete from the hash table
-//    _tree.inorder([](ServerNode * server){
-//        delete server->data;
-//    });
-}

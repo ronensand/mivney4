@@ -338,9 +338,6 @@ public:
 
 	void insert(RankAVLTreeNode<T, Pred, Less>* t) {
 		arr[length++] = t;
-		t->left = nullptr;
-		t->right = nullptr;
-		t->parent = nullptr;
 	}
 };
 
@@ -390,9 +387,15 @@ RankAVLTreeNode<T, Pred, Less>* merge(RankAVLTreeNode<T, Pred, Less>* t1,
 
 	auto merged = merge(&t1arr, &t2arr);
 
+    for (int i = 0; i < t1->rank + t2->rank; ++i) {
+        merged[i]->left = nullptr;
+        merged[i]->right = nullptr;
+        merged[i]->parent = nullptr;
+    }
+
 	RankAVLTreeNode<T, Pred, Less>* result = array_to_tree<T, Pred, Less>
 	(merged, 0,	t1arr.length + t2arr.length - 1);
-	//delete [] merged;
+	delete [] merged;
 
 	return result;
 }

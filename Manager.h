@@ -20,7 +20,7 @@ class InvalidArgumentException : public std::exception {
 class Manager {
 public:
     explicit Manager(int n);
-    ~Manager();
+    ~Manager() = default;
     void merge(int id1, int id2);
     void addServer(int dataCenterId, int serverID, int traffic = 0);
     void removeServer(int serverID);

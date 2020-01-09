@@ -90,7 +90,10 @@ public:
 
 	~HashTable(){
 		for (int i=0; i<capacity; ++i) {
-			if(array[i]->key != DELETE_SIGN) delete array[i];
+		    if (nullptr != array[i]) {
+                if(array[i]->key != DELETE_SIGN) delete array[i]->value;
+                delete array[i];
+		    }
 		}
 		delete [] array;
 	};

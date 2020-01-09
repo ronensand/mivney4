@@ -15,7 +15,8 @@ void DataCenter::remove(Server *server) {
 void DataCenter::merge(DataCenter &center) {
     // We need to create new merged tree.
     // TODO:
-    _tree = ServerTree (_tree, center._tree);
+    auto merged_tree = ServerTree(_tree, center._tree);
+    _tree.swap(merged_tree);
 }
 
 int DataCenter::get_score_by_rank(int k) {

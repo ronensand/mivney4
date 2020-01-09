@@ -313,6 +313,10 @@ public:
 		throw TreeNodeNotFoundException();
 	}
 
+	void swap(RankAVLTree& tree) {
+        std::swap(_root, tree._root);
+    }
+
 private:
 	RankAVLTreeNode<T, Pred, Less> * _root;
 	Less _less;
@@ -381,7 +385,7 @@ RankAVLTreeNode<T, Pred, Less>* merge(RankAVLTreeNode<T, Pred, Less>* t1,
 
 	RankAVLTreeNode<T, Pred, Less>* result = array_to_tree<T, Pred, Less>
 	(merged, 0,	t1arr.length + t2arr.length - 1);
-	delete [] merged;
+	//delete [] merged;
 
 	return result;
 }

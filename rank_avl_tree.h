@@ -311,7 +311,7 @@ public:
 			return _root->get_score_by_rank(rank);
 		}
 
-		throw TreeNodeNotFoundException();
+		return 0;
 	}
 
 	void swap(RankAVLTree& tree) {

@@ -61,6 +61,8 @@ void Manager::set_traffic(int serverID, int traffic) {
 int Manager::SumHighestTrafficServers(int dataCenterId, int k) {
     if (0 > dataCenterId || _size < dataCenterId || 0 > k)  throw InvalidArgumentException();
 
+    if (0 == k) return 0;
+
     if  (dataCenterId == 0) {
         return _tree.get_score_by_rank(k);
     }

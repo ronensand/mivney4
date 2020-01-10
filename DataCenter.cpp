@@ -14,7 +14,6 @@ void DataCenter::remove(Server *server) {
 
 void DataCenter::merge(DataCenter &center) {
     // We need to create new merged tree.
-    // TODO:
     auto merged_tree = ServerTree(_tree, center._tree);
     _tree.swap(merged_tree);
 }

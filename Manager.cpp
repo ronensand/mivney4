@@ -10,8 +10,6 @@ void Manager::merge(int id1, int id2) {
     if (0 >= id1 || _size < id1 || 0 >= id2 || _size < id2 ) throw InvalidArgumentException();
 
     _union.merge(id1, id2);
-//    DataCenter& merged_center = _union.find(id1);
-//    (merged_center == center1) ? (merged_center.merge(center2)) : (merged_center.merge(center1));
 }
 
 void Manager::addServer(int dataCenterId, int serverID, int traffic) {
@@ -28,8 +26,6 @@ void Manager::addServer(int dataCenterId, int serverID, int traffic) {
         }
     }
     catch(...) {
-        // Most cases is server already exists (handle specific exception type later).
-        // And then the error will be in the first insert so we dont need to remove from other objects.
         delete server;
         throw; // rethrow;
     }

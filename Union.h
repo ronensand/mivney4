@@ -5,6 +5,8 @@
 #ifndef UNION_H
 #define UNION_H
 
+#include <exception>
+
 // T Must have default c'tor
 template <typename T>
 class Union {
@@ -37,8 +39,12 @@ private:
 
 template<typename T>
 Union<T>::Union(int n) :
-    _nodes(new Node[n]), _n(n) {}
-
+    _nodes(new Node[n]), _n(n)
+{
+    for (int i = 0; i < n; ++i) {
+        _nodes[i].item.set_id(i + 1);
+    }
+}
 
 template<typename T>
 Union<T>::~Union() {
@@ -58,9 +64,11 @@ void Union<T>::merge(int id1, int id2) {
     if (_nodes[root1 - 1].size >= _nodes[root2 - 1].size){
         _nodes[root2 - 1].parent_id = root1;
         _nodes[root1 - 1].size += _nodes[root2 - 1].size;
+        _nodes[root1 - 1].item.merge(_nodes[root2 - 1].item);
     } else {
         _nodes[root1 - 1].parent_id = root2;
         _nodes[root2 - 1].size += _nodes[root1 - 1].size;
+        _nodes[root2 - 1].item.merge(_nodes[root1 - 1].item);
     }
 }
 

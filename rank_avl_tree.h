@@ -23,7 +23,12 @@ class AlreadyExistsException : public std::exception {
 
 template <class T, class Pred, class Less>
 class RankAVLTreeNode {
-
+public:
+	void update() {
+		update_height();
+		update_ranks();
+	}
+private:
 	void update_height() {
 		int leftHeight = left != nullptr ? left->height : -1;
 		int rightHeight = right != nullptr ? right->height : -1;
@@ -55,15 +60,13 @@ class RankAVLTreeNode {
 	void virtual set_left(RankAVLTreeNode* tree) {
 		left = tree;
 		if (nullptr != tree) tree->parent = this;
-		update_height();
-		update_ranks();
+		update();
 	}
 
 	void virtual set_right(RankAVLTreeNode* tree) {
 		right = tree;
 		if (nullptr != tree) tree->parent = this;
-		update_height();
-		update_ranks();
+		update();
 	}
 
 	RankAVLTreeNode* roll_right() {
@@ -85,8 +88,7 @@ class RankAVLTreeNode {
 	RankAVLTreeNode* balance() {
 		int balanceFactor = balance_factor();
 		if (balanceFactor * balanceFactor < 4) {
-			update_height();
-			update_ranks();
+			update();
 			return this;
 		}
 
@@ -114,6 +116,7 @@ class RankAVLTreeNode {
 			T temp = data;
 			data = next->data;
 			next->data = temp;
+			score = next->score;
 			toRemove = next;
 		}
 
@@ -165,15 +168,15 @@ class RankAVLTreeNode {
 
 public:
     T data;
+    int score;
+    int rank;
+    int score_rank;
     Pred pred;
     Less less;
     RankAVLTreeNode* parent;
     RankAVLTreeNode* left;
     RankAVLTreeNode* right;
     int height;
-    int rank;
-    int score;
-    int score_rank;
 
 	RankAVLTreeNode(const T& data, int score, Pred pred, Less less,
 		RankAVLTreeNode* parent = nullptr, RankAVLTreeNode* left = nullptr, RankAVLTreeNode* right = nullptr) :
@@ -235,7 +238,7 @@ public:
     template <typename Func>
     void inorder(Func func){
         if (left) left->inorder(func);
-        func(data);
+        func(this);
         if (right) right->inorder(func);
     }
 
@@ -262,6 +265,7 @@ template <class T, class Pred, class Less>
 class RankAVLTree {
 public:
     explicit RankAVLTree(Pred pred = Pred(), Less less = Less()) : _root(nullptr), _less(less), _pred(pred) {};
+    RankAVLTree(RankAVLTree& tree1, RankAVLTree& tree2, Pred pred = Pred(), Less less = Less());
     ~RankAVLTree() {
         if (_root) delete _root;
     }
@@ -307,14 +311,103 @@ public:
 			return _root->get_score_by_rank(rank);
 		}
 
-		throw TreeNodeNotFoundException();
+		return 0;
 	}
 
-	RankAVLTreeNode<T, Pred, Less> * _root;
+	void swap(RankAVLTree& tree) {
+        std::swap(_root, tree._root);
+    }
+
 private:
+	RankAVLTreeNode<T, Pred, Less> * _root;
 	Less _less;
     Pred _pred;
 };
+
+template <class T, class Pred, class Less>
+class TreeNodeArray {
+public:
+	RankAVLTreeNode<T, Pred, Less>** arr;
+	int length;
+
+	explicit TreeNodeArray(int length) :
+		arr(new RankAVLTreeNode<T, Pred, Less>*[length]), length(0) {}
+	~TreeNodeArray()  {
+		delete [] arr;
+	}
+
+	void insert(RankAVLTreeNode<T, Pred, Less>* t) {
+		arr[length++] = t;
+	}
+};
+
+template<class T, class Pred, class Less>
+RankAVLTreeNode<T, Pred, Less>** merge(TreeNodeArray<T, Pred, Less>* t1,
+                                       TreeNodeArray<T, Pred, Less>* t2) {
+	auto* result =
+		new RankAVLTreeNode<T, Pred, Less>*[t1->length + t2->length];
+	int i1 = 0, i2 = 0, ir = 0;
+	while(i1<t1->length && i2<t2->length) {
+		if(Less()(t1->arr[i1]->data, t2->arr[i2]->data))
+			result[ir++] = t1->arr[i1++];
+		else result[ir++] = t2->arr[i2++];
+	}
+	while(i1<t1->length) result[ir++] = t1->arr[i1++];
+	while(i2<t2->length) result[ir++] = t2->arr[i2++];
+	return result;
+}
+
+template <class T, class Pred, class Less>
+RankAVLTreeNode<T, Pred, Less>* array_to_tree(RankAVLTreeNode<T, Pred, Less>** arr,
+                                              int start, int end) {
+	if (start > end) return nullptr;
+	auto* root = arr[(start+end)/2];
+	root->left = array_to_tree(arr, start, ((start+end)/2)-1);
+	if (root->left) root->left->parent = root;
+	root->right = array_to_tree(arr, ((start+end)/2)+1, end);
+    if (root->right) root->right->parent = root;
+    root->update();
+
+	return root;
+}
+
+template <class T, class Pred, class Less>
+RankAVLTreeNode<T, Pred, Less>* merge(RankAVLTreeNode<T, Pred, Less>* t1,
+		RankAVLTreeNode<T, Pred, Less>* t2){
+	TreeNodeArray<T,Pred,Less> t1arr = TreeNodeArray<T,Pred,Less>(t1->rank);
+	TreeNodeArray<T,Pred,Less> t2arr = TreeNodeArray<T,Pred,Less>(t2->rank);
+
+	t1->inorder([&](RankAVLTreeNode<T, Pred, Less>* t) {
+		t1arr.insert(t);
+	});
+
+	t2->inorder([&](RankAVLTreeNode<T, Pred, Less>* t) {
+		t2arr.insert(t);
+	});
+
+	auto merged = merge(&t1arr, &t2arr);
+
+    for (int i = 0; i < t1->rank + t2->rank; ++i) {
+        merged[i]->left = nullptr;
+        merged[i]->right = nullptr;
+        merged[i]->parent = nullptr;
+    }
+
+	RankAVLTreeNode<T, Pred, Less>* result = array_to_tree<T, Pred, Less>
+	(merged, 0,	t1arr.length + t2arr.length - 1);
+	delete [] merged;
+
+	return result;
+}
+
+template<class T, class Pred, class Less>
+RankAVLTree<T, Pred, Less>::RankAVLTree(RankAVLTree &tree1, RankAVLTree &tree2, Pred pred, Less less) :
+    _root(merge(tree1._root, tree2._root)), _less(less), _pred(pred) {
+        // We using the nodes in the merged tree, we want to avoid deleting them
+        tree1._root = nullptr;
+        tree2._root = nullptr;
+}
+
 
 #endif //RANK_AVL_TREE_H
 

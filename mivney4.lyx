@@ -850,9 +850,373 @@ Union Find
 \end_layout
 
 \begin_layout Standard
+נממש 
+\begin_inset Formula $UnionFind$
+\end_inset
 
-\lang english
-TODO
+ בעזרת מערך, משום שיש לנו מספר קבוע של 
+\begin_inset Formula $DataCenters$
+\end_inset
+
+, כפי שנלמד בהרצאה
+\end_layout
+
+\begin_layout Standard
+יהיה לנו בכל תא במערך:
+\end_layout
+
+\begin_layout Itemize
+גודל - כמות האובייקטים
+\end_layout
+
+\begin_layout Itemize
+אינדקס ה
+\begin_inset Quotes erd
+\end_inset
+
+אב
+\begin_inset Quotes erd
+\end_inset
+
+ האינדקס של האוביקט אב - )יפורט בהמשך כיצד מתעדכן(
+\end_layout
+
+\begin_layout Itemize
+האוביקט עצמו
+\end_layout
+
+\begin_layout Standard
+כאשר כל אוביקט 
+\begin_inset Formula $i$
+\end_inset
+
+ יהיה ממקום במקום ה 
+\begin_inset Formula $i-1$
+\end_inset
+
+ )מתתחילים לספור מ
+\numeric on
+1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ולא מ
+\numeric on
+0
+\numeric off
+( במערך, בכל תא במערך יהיה את האינדקס של של ה
+\begin_inset Quotes erd
+\end_inset
+
+אבא
+\begin_inset Quotes erd
+\end_inset
+
+ של אותו האוביקט, כאשר 
+\begin_inset Formula $DataCenter$
+\end_inset
+
+ ללא 
+\begin_inset Quotes eld
+\end_inset
+
+אב
+\begin_inset Quotes erd
+\end_inset
+
+ יכיל את 
+\begin_inset Formula $0$
+\end_inset
+
+ כאב ובכך נדע שהוא ה 
+\begin_inset Formula $root$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+הסבר המימוש - פעולות
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula $Init$
+\end_inset
+
+ -
+\begin_inset Formula $O\left(n\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ניצור מערך בגודל 
+\begin_inset Formula $n$
+\end_inset
+
+, ובכל תא במערך נמקם את האוביקט של אותו התא, נאפס את כל שפות ה האב )בהתחלה
+ כל האוביקטים בנמצאים בנפרד(, ובשדה הגודל נשים
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+.
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula $Find$
+\end_inset
+
+ - 
+\begin_inset Formula $O\left(logn\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נראה לדעת באיזה אוביקטת האוביקט 
+\begin_inset Formula $i$
+\end_inset
+
+ נמצא, לשם כך נלך למיקום שלו במערך 
+\begin_inset Formula $(i-1)$
+\end_inset
+
+ אם ערך האב הוא
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+, אז נחזיר את האוביקט עצמו, אחרת נלך לאוביקט האב, ובכך נמשיך עד שנמצא אוביקט
+ ללא אב, שהוא אוביקט השורש ונחזיר אותוץ
+\end_layout
+
+\begin_layout Standard
+משום שבתהליך המיזוג דאגו תמיד למזג עץ קטן לעץ גדול, גובה העץ חסום ב 
+\begin_inset Formula $O\left(logn\right)$
+\end_inset
+
+ ולכן גם תהליך מציאת האב חסום ב 
+\begin_inset Formula $O\left(logn\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+לאחר שמצאנו את האב, נחזור שוב לאוביקט שהתחלננו ממנו 
+\begin_inset Formula $\left(i\right)$
+\end_inset
+
+ ונעדכן לו,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ולכל השרשת את האוביקטים עד לשורש, את האב להיות השורש, ובכך בגישה הבאה ל
+\begin_inset Formula $Find\left(i\right)$
+\end_inset
+
+ היא תהיה ב 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+, תהליך זה גם כן לוקח 
+\begin_inset Formula $O\left(logn\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula $Find$
+\end_inset
+
+ - 
+\begin_inset Formula $O\left(logn\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נקבל זוג אינדקסים של אובקטים שאותם אנחנו רוצים לאחד, נלך לתא של כל אחד מהם
+ במערך 
+\begin_inset Formula $(i-1),(j-1)$
+\end_inset
+
+ ונבצע 
+\begin_inset Formula $Find$
+\end_inset
+
+ לכל אחד מהם, לשורש שלו - 
+\begin_inset Formula $log\left(n\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ונבדוק את שדה הגודל, ניקח את האוביקט הקטן יותר 
+\begin_inset Quotes eld
+\end_inset
+
+ונכניס
+\begin_inset Quotes erd
+\end_inset
+
+ אותו לתוך האוביקט הגדול, נעשה זאת ע
+\begin_inset Quotes erd
+\end_inset
+
+י שינוי אינדקס האב של האוביקט הקטן יותר, מ-
+\numeric on
+0
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+להיות השורש הגדול יותר, ובכך נשמור על גובה העץ חסום ב 
+\begin_inset Formula $logn$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ובנוסף נעדכן את שזה הגדול להיות הגודל החדש ונקרא לפונקציות המיזוג של האוביקטיםץ
+\end_layout
+
+\begin_layout Subsubsection*
+הסיבוכיות המשוערכת של 
+\begin_inset Formula $Find$
+\end_inset
+
+ושל 
+\begin_inset Formula $Union$
+\end_inset
+
+ היא 
+\begin_inset Formula $log^{*}\left(n\right)$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection*
@@ -1673,7 +2037,8 @@ Union Find
 \end_layout
 
 \begin_layout Itemize
-נוציא את השרת מהעץ של חוות השרתים שלו, ומהעץ הכללי של כל החוות - 
+נוציא את השרת מהעץ של חוות השרתים שלו, ומהעץ הכללי של כל החוות )במקרה והוא
+ קיים שם( - 
 \begin_inset Formula $O\left(log(m)\right)$
 \end_inset
 

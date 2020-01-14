@@ -854,7 +854,8 @@ Union Find
 \begin_inset Formula $UnionFind$
 \end_inset
 
- עם עצים הפוכים וכיווץ מסלולים כפי שנלמד בהרצאות ובתרגולים.
+ עם עצים הפוכים וכיווץ מסלולים, ובעזרת מערך משום שיש לנו גודל ידוע מראש,
+ כפי שנלמד בהרצאות ובתרגולים.
  סיבוכיות הפעולות הוא כפי שנלמד:
 \end_layout
 
@@ -864,68 +865,6 @@ Union Find
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-פעולת
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-\lang english
-Union
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\lang hebrew
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-- 
-\begin_inset Formula $O\left(log^{*}\left(n\right)\right)$
-\end_inset
-
- משוערך
 \end_layout
 
 \begin_layout Standard
@@ -984,10 +923,92 @@ Find
 \noun default
 \color inherit
 - 
+\begin_inset Formula $O\left(log\left(n\right)\right)$
+\end_inset
+
+, אבל משום שאנחנו מוסיפים קיצור מסלולים נקבל, 
 \begin_inset Formula $O\left(log^{*}\left(n\right)\right)$
 \end_inset
 
  משוערך
+\end_layout
+
+\begin_layout Standard
+פעולת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Union
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+- 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+, אבל משום שכדי לבצע את פעול ה 
+\begin_inset Formula $Union$
+\end_inset
+
+ אנחנו עושים קודם פעמיים 
+\begin_inset Formula $Find$
+\end_inset
+
+ שהיא 
+\begin_inset Formula $O\left(log^{*}\left(n\right)\right)$
+\end_inset
+
+ משוערך, אז בפועל לוקח לנו 
+\begin_inset Formula $O\left(log^{*}\left(n\right)\right)-$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection*

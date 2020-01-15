@@ -43,7 +43,7 @@ class HashTable {
 			++i;
 		}
 
-		return array[h] == nullptr || i == size ? NOT_FOUND : h;
+		return array[h] == nullptr || i == capacity ? NOT_FOUND : h;
 	}
 
 	int hash(int key) {

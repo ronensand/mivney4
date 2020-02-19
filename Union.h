@@ -59,6 +59,7 @@ void Union<T>::merge(int id1, int id2) {
     // Using get(without root fix) and not find, because we dont know the real root
     int root1 = get_root_id(id1);
     int root2 = get_root_id(id2);
+    if (root1 == root2) return;
 
     // Merge smaller to bigger
     if (_nodes[root1 - 1].size >= _nodes[root2 - 1].size){

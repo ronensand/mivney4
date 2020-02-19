@@ -376,7 +376,6 @@ RankAVLTreeNode<T, Pred, Less>* merge(RankAVLTreeNode<T, Pred, Less>* t1,
 		RankAVLTreeNode<T, Pred, Less>* t2){
     if (nullptr == t1) return t2;
     if (nullptr == t2) return t1;
-
     TreeNodeArray<T,Pred,Less> t1arr = TreeNodeArray<T,Pred,Less>(t1->rank);
 	TreeNodeArray<T,Pred,Less> t2arr = TreeNodeArray<T,Pred,Less>(t2->rank);
 
